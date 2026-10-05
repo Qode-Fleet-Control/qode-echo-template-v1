@@ -1,4 +1,4 @@
-module github.com/Qode-Platform/qode-echo-template-v1
+module github.com/Qode-Fleet-Control/qode-echo-template-v1
 
 go 1.25.0
 
