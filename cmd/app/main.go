@@ -22,6 +22,9 @@ func port() string {
 func newServer() *echo.Echo {
 	e := echo.New()
 	e.HideBanner = true
+	// KEEP THIS: one log line per request (status + duration) is what the workspace Monitoring tab charts.
+	// requestLog (requestlog.go) is outermost, so it sees the final status.
+	e.Use(requestLog)
 	e.Use(middleware.Recover())
 
 	e.GET("/health", func(c echo.Context) error {
